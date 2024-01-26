@@ -3,7 +3,7 @@ import { AiFillDelete } from "react-icons/ai";
 import {PostList } from "../store/post-list-store";
 const Post =({post})=>{
 
-  console.log(post.title);
+ 
   const {deletePost}= useContext(PostList);
     return (
         <div class="card post-card" >
