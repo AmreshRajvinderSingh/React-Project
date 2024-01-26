@@ -4,15 +4,18 @@ export const PostList =createContext({
     postList:[],
     addPost: ()=>{},
     deletePost:()=>{},
+    addPosts:()=>{},
 });
 const postListReducer=(currPostList, action)=>{
     let newPostList=currPostList;
     console.log(currPostList,"This is the Current Post list");
     console.log(newPostList,"This is the copy of current post list -> New post List");
     if(action.type ==='DELETE_POST'){
-        newPostList =currPostList.filter(post => post.id !== action.payload.postId)
+        newPostList =currPostList.filter(post => post.id !== action.payload.postId);
+    }else if(action.type==='ADD_POSTS'){
+        newPostList=action.payload.posts;
     }else if(action.type ==='ADD_POST'){
-        newPostList= [action.payload, ...currPostList]
+        newPostList= [action.payload, ...currPostList];
     }
     return newPostList;
 }
@@ -38,6 +41,20 @@ const PostListProvider=({children})=>{
 
 
     };
+
+    const addPosts=(posts)=>{
+        
+        dispatchPostList({
+            type:'ADD_POSTS',
+            payload: {
+                posts,
+            
+            },
+
+        })
+
+
+    };
     const deletePost=(postId)=>{
     console.log(`Delete Post Pressed${postId}`)
     dispatchPostList({
@@ -52,7 +69,9 @@ const PostListProvider=({children})=>{
     return (<PostList.Provider value={
        {postList:postList,
        addPost:addPost,
-       deletePost:deletePost }
+       deletePost:deletePost,
+       addPosts:addPosts,
+    }
     }>
         {children}
     </PostList.Provider>
