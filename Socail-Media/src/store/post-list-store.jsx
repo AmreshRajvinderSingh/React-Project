@@ -19,7 +19,7 @@ const postListReducer=(currPostList, action)=>{
 
 const PostListProvider=({children})=>{
 
-    const[postList, dispatchPostList]=useReducer(postListReducer,Default_Post_List);
+    const[postList, dispatchPostList]=useReducer(postListReducer,[]);
     const addPost=(userId,postTitle, postBody,reaction, tags)=>{
         console.log(`${userId} ${postTitle} ${postBody} ${reaction} ${tags}`);
         dispatchPostList({
@@ -59,23 +59,23 @@ const PostListProvider=({children})=>{
     );
 };
 
-const Default_Post_List=[{
-    id:'1',
-    title:"This is my first Post",
-    body:"Hi Friends this is my first post",
-    reaction: 5,
-    userId:"user-9",
-    tags:["firstpost","excieted"],
+// const Default_Post_List=[{
+//     id:'1',
+//     title:"This is my first Post",
+//     body:"Hi Friends this is my first post",
+//     reaction: 5,
+//     userId:"user-9",
+//     tags:["firstpost","excieted"],
 
-},
-{
-    id:'2',
-    title:"This is my second Post",
-    body:"Hi Friends this is my second post",
-    reaction: 2,
-    userId:"user-9",
-    tags:["secondpost","excieted"],
+// },
+// {
+//     id:'2',
+//     title:"This is my second Post",
+//     body:"Hi Friends this is my second post",
+//     reaction: 2,
+//     userId:"user-9",
+//     tags:["secondpost","excieted"],
 
-}
-];
+// }
+// ];
 export default PostListProvider;
