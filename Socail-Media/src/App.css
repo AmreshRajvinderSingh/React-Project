@@ -8,8 +8,10 @@
   min-height: 800px;
 }
 .post-card{
-  width: 30rem;
-  margin:20px 50px;
+  width: 40rem;
+  margin:20px;
+  margin-left: 20%;
+  
 }
 .hashtag{
   margin: 0px 3px;
