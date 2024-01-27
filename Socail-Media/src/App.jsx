@@ -7,6 +7,7 @@ import Sidebar from './components/Sidebar';
 import Create from './components/CreatePost';
 import PostList from './components/PostList';
 import PostListProvider from './store/post-list-store';
+import Loading from './components/Loading';
 
 function App() {
   
@@ -21,7 +22,6 @@ function App() {
       <Header />
       {selected==="Home" ?(<PostList />) :(<Create/>)}
         
-      
       <Footer />
       </div>
       </div>
